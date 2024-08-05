@@ -435,7 +435,7 @@ if(CPPTRACE_GET_SYMBOLS_WITH_LIBDWARF)
   set(PIC_ALWAYS TRUE)
   set(BUILD_DWARFDUMP FALSE)
 
-  add_subdirectory(libs/libdwarf/)
+  add_subdirectory(libs/libdwarf)
   target_include_directories(
           dwarf
           PRIVATE
@@ -491,10 +491,8 @@ if(CPPTRACE_GET_SYMBOLS_WITH_LIBDWARF)
 endif()
 
 if(CPPTRACE_GET_SYMBOLS_WITH_DBGHELP)
-  #target_compile_definitions(${target_name} PUBLIC CPPTRACE_GET_SYMBOLS_WITH_DBGHELP)
-  #target_link_libraries(${target_name} PRIVATE dbghelp)
-
-  message(FATAL_ERROR "SpaRcle Common: only libdwarf is currently supported.")
+  target_compile_definitions(${target_name} PUBLIC CPPTRACE_GET_SYMBOLS_WITH_DBGHELP)
+  target_link_libraries(${target_name} PRIVATE dbghelp)
 endif()
 
 if(CPPTRACE_GET_SYMBOLS_WITH_NOTHING)
