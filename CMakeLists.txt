@@ -427,7 +427,7 @@ if(CPPTRACE_GET_SYMBOLS_WITH_LIBDWARF)
 
   cmake_policy(SET CMP0074 NEW)
 
-  add_subdirectory(libs/zstd/build/cmake)
+  add_subdirectory(libs/zstd/configs/cmake)
 
   # libdwarf itself
   set(CMAKE_POLICY_DEFAULT_CMP0077 NEW)
